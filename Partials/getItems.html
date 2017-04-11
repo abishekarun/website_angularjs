@@ -1,0 +1,36 @@
+
+<body>
+
+<div ng-include src="'Partials/items.html'"></div>
+
+<div class="product">
+
+<div class="product-box">
+
+<div ng-repeat="x in items" ng-init="flag=false">
+<a href="" class=" pro ovr">
+<div class="pro-image"><img ng-src="images/items/{{x.image}}" width="100%" /></div>
+
+<p>{{x.manufacture}}   {{x.name}} <br /></p>
+<h6> Rs {{x.price}} ·- {{x.quantity}}</h6>
+<div class="textbox">
+<div class="text">
+<div class=" add" ng:click="flag=!flag;update(x)"><i class="fa fa-cart-plus"></i> Add to Cart</div>
+<div class=" clearfix"></div>
+</div>
+</div>
+</a>
+<div class="right">
+    <div class="cssFade" ng-hide="!flag">
+        <div demo-directive ></div>
+    </div>
+</div>
+</div>
+
+<div class=" clearfix"></div> 
+</div>
+</div>
+<div ng-include src="'Partials/footer1.html'"></div>
+
+</body>
+

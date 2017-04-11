@@ -1,0 +1,16 @@
+
+
+
+<body>
+<div class="main" >
+<h2>Enter Your Zip Code</h2>
+	<form name="testForm" novalidate>
+		<input type="text"name="formText" autofocus ng-minlength="6"ng-pattern="/^[0-9]+$/" placeholder="Enter Your Zip Code" ng-model="pin" ng-change="update()"  required  />
+		<br></br>
+		<div style="color:red" ng-if="testForm.formText.$error.pattern">Invalid Number format<br /></div>
+	</form>
+</div>
+</div>
+
+</body>
+

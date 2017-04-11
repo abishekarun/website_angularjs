@@ -1,0 +1,21 @@
+<body>
+<div ng-include src="Partials/header.html"></div>
+<div class="vendor">
+
+<div class="vendor-box">
+<div ng-repeat="x in vendors">
+<a  href="#/getItems/{{x.vendor_id}}" class=" col-lg-2 col-md-2 col-sm-3 col-xs-6" >
+<div class="round-vendor"><img ng-src="images/{{x.image}}" width="100%" /></div>
+<h5>{{x.name}}</h5>
+</a>
+</div>
+
+
+
+<div class=" clearfix"></div> 
+</div>
+
+</div>
+<div ng-include src="Partials/footer.html"></div>
+</div>
+</body>

@@ -1,0 +1,77 @@
+
+<div class="header">
+    <div class="first">
+    <div class="col-lg-1 col-md-3 col-sm-3 col-xs-4 pull-left"><a href="index.html"><img src="images/logo.png" /></a></div>
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 pull-left">
+        <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="  search-query form-control" placeholder="Search"></input>
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button">
+                                    <span> <i class="fa fa-search"></i></span>
+                                </button>
+                            </span>
+                        </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-8 pull-right">
+    <a href="#cart"><span class="cart-item">3 </span>Cart <i class="fa fa-heart"></i></a>
+    <a href="#login">
+        <ng-switch on="getFlag()">
+          <span ng-switch-when="true">{{first_name}}</span>
+          <span ng-switch-default>Login</span>
+        </ng-switch>
+    <i class="fa fa-heart"></i></a>
+    </div>
+    <div class=" clearfix"></div>
+    </div>
+
+    <div class="header-2nd">
+        <ul id="gn-menu" class="gn-menu-main">
+        	<li class="gn-trigger">
+        		<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+        		<nav class="gn-menu-wrapper">
+        			<div class="gn-scroller">
+                        <ul class="gn-menu" id="cssmenu">
+                            <li class='has-sub'><a class="gn-icon"> <i class="fa fa-leaf"></i> Pasta </a>
+                                 <ul>
+                                     <li><a href='#/getItems/{{vendor_id}}/1'>Dry Pasta</a></li>
+                                     <li><a href='#/getItems/{{vendor_id}}/2'>Fresh Pasta</a></li>
+                                     <li><a href='#/getItems/{{vendor_id}}/3'>Pasta Sauce</a></li>
+                                     <li><a href='#/getItems/{{vendor_id}}/4'>Instant Foods</a></li>
+                                     <li><a href='#/getItems/{{vendor_id}}/5'>Grains & Dried Goods</a></li>
+                                 </ul>
+                            </li>
+                            <li class='has-sub'><a class="gn-icon"> <i class="fa fa-leaf"></i> Bakery</a>
+                                 <ul>
+                                     <li><a href='#/getItems/{{vendor_id}}/6'>Bread</a></li>
+                                     <li><a href='#/getItems/{{vendor_id}}/7'>Biscuits</a></li>
+                                 </ul>
+                            </li>
+                            <li class='has-sub'><a class="gn-icon"> <i class="fa fa-leaf"></i> Vegetables</a>
+                                 <ul>
+                                     <li><a href='#/getItems/{{vendor_id}}/8'>Tomatto</a></li>
+                                     <li><a href='#/getItems/{{vendor_id}}/9'>Chilli</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon" > <i class="fa fa-leaf"></i>Settings</a></li>
+                        </ul>
+                    </div><!-- /gn-scroller -->
+                </nav>
+            </li>
+            <li class="menu-ex"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li class="menu-ex"><a href="#"><i class="fa fa-list-ul"></i>  Lists & Recipes</a></li>
+            <li class="menu-ex"><a href="#"><i class="fa fa-question-circle"></i>  Help</a></li>
+            <li class="menu-ex"><a href="#"><i class="fa fa-info"></i> More</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+    
+            <script>
+                new gnMenu( document.getElementById('gn-menu') );
+            </script>
+          

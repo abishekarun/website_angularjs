@@ -1,0 +1,126 @@
+
+
+<body>
+
+<div class="holder" ng-include src="'Partials/items.html'"></div>
+
+<div class="container">
+
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form role="form" name="signup" novalidate>
+			<fieldset>
+				<h2>Please Sign In</h2>
+				<hr class="colorgraph">
+				<div class="form-group">
+                    <input type="text" name="phone" ng-minlength="10" ng-maxlength="10" id="phone_number" ng-model="user.phone_number" class="form-control input-lg" ng-pattern="/^[0-9]+$/" placeholder="Phone Number" tabindex="3" ng-required="true">
+    				<div style="color:red" class="help-block" ng-show="((signup.phone.$error.required || signup.phone.$error.pattern)&& submitted)">Valid phone number is required</div>
+    	            <div style="color:red" class="help-block" ng-show="((signup.phone.$error.minlength || signup.phone.$error.maxlength) && submitted) ">Phone number should be 10 digits</div>
+				</div>
+				<div class="form-group">
+                    <input type="password" name="password" id="password" ng-model="user.password" class="form-control input-lg" placeholder="Password" tabindex="5" ng-required="true">
+                    <div style="color:red" class="help-block" ng-show="(signup.last_name.$error.required && submitted)">Password is required</div>
+				</div>
+				<span class="button-checkbox">
+					<button type="button" class="btn" data-color="info">Remember Me</button>
+                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+					<a href="" class="btn btn-link pull-right">Forgot Password?</a>
+				</span>
+				<hr class="colorgraph">
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+                        <input type="submit" class="btn btn-lg btn-success btn-block" 
+                        ng-click="submitted=true;login(user)" value="Sign In">
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<a href="#register" class="btn btn-lg btn-primary btn-block">Register</a>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+</div>
+</div>
+<div class="footer">
+<div class="col-lg-6 col-md-6 col-sm-7 col-xs-6 pull-left">
+<a href="#">About Us</a>
+<a href="#">Help</a>
+<a href="#">More</a>
+
+</div>
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 pull-right">
+<a href="#"><img src="images/facebook.png" /></a>
+<a href="#"><img src="images/twittr.png" /></a>
+<a href="#"><img src="images/facebook.png" /></a>
+
+</div>
+<div class=" clearfix"></div>
+</div>
+
+
+</div>
+
+<script>
+$(function(){
+    $('.button-checkbox').each(function(){
+		var $widget = $(this),
+			$button = $widget.find('button'),
+			$checkbox = $widget.find('input:checkbox'),
+			color = $button.data('color'),
+			settings = {
+					on: {
+						icon: 'glyphicon glyphicon-check'
+					},
+					off: {
+						icon: 'glyphicon glyphicon-unchecked'
+					}
+			};
+
+		$button.on('click', function () {
+			$checkbox.prop('checked', !$checkbox.is(':checked'));
+			$checkbox.triggerHandler('change');
+			updateDisplay();
+		});
+
+		$checkbox.on('change', function () {
+			updateDisplay();
+		});
+
+		function updateDisplay() {
+			var isChecked = $checkbox.is(':checked');
+			// Set the button's state
+			$button.data('state', (isChecked) ? "on" : "off");
+
+			// Set the button's icon
+			$button.find('.state-icon')
+				.removeClass()
+				.addClass('state-icon ' + settings[$button.data('state')].icon);
+
+			// Update the button's color
+			if (isChecked) {
+				$button
+					.removeClass('btn-default')
+					.addClass('btn-' + color + ' active');
+			}
+			else
+			{
+				$button
+					.removeClass('btn-' + color + ' active')
+					.addClass('btn-default');
+			}
+		}
+		function init() {
+			updateDisplay();
+			// Inject the icon if applicable
+			if ($button.find('.state-icon').length == 0) {
+				$button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+			}
+		}
+		init();
+	});
+});
+</script>
+
+</body>

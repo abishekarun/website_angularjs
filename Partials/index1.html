@@ -1,0 +1,29 @@
+
+<style>
+.ng-valid.ng-dirty{
+	border-color:#006400;
+
+}
+.ng-invalid.ng-dirty{
+	border-color: #8B0000;
+}
+</style>
+
+<body>
+<div class="main">
+	<h2>Enter Your mail</h2>
+		<div class="mail-input">
+			<form name="EmailForm" >
+				<div class="control-group" ng-class="{true: 'error'}[submitted && form.email.$invalid]">
+					<input name="email" ng-model="email"  ng-minlength="15" ng-change="!(EmailForm.email.$error.email) && pass()" placeholder="Enter Your mail" type="email"required  />
+					<a class="submit"ng-click="submitted=true ;( !(EmailForm.email.$error.email) && register() )"><i class="fa fa-arrow-circle-right"></i></a>
+					<br></br>
+					<div style="color:red" ng-show="submitted && EmailForm.email.$error.email">Invalid email</div>
+				</div>
+			</form>
+		</div>
+</div>
+
+</div>
+
+</body>

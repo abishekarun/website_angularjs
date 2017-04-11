@@ -1,0 +1,55 @@
+<body>
+
+<div ng-include src="'Partials/items.html'"></div>
+
+<div class="container">
+
+<div class="product-box">
+<div class="cart">
+		<div ng-repeat="x in cart track by $index">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pull-left">	
+					{{x.items}}
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pull-right">	
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pull-left">	
+							{{x.count}}
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pull-right">
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pull-left">		
+									<button ng-if="x.count" ng-click="reduce($index)">Reduce</button>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pull-right">		
+									<button ng-if="x.count" ng-click="remove($index)">Remove</button>
+								</div>
+							</div>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+</div>
+</div>
+
+<div class="footer">
+<div class="col-lg-6 col-md-6 col-sm-7 col-xs-6 pull-left">
+<a href="#">About Us</a>
+<a href="#">Help</a>
+<a href="#">More</a>
+
+</div>
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 pull-right">
+<a href="#"><img src="images/facebook.png" /></a>
+<a href="#"><img src="images/twittr.png" /></a>
+<a href="#"><img src="images/facebook.png" /></a>
+
+</div>
+<div class=" clearfix"></div>
+</div>
+
+
+</body>

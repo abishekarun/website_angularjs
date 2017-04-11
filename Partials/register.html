@@ -1,0 +1,188 @@
+
+
+<body>
+
+<div  class="holder" ng-include src="'Partials/items.html'"></div>
+
+<div class="login">
+<div class="grid-align">
+<div class="container">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form role="form" name="registration" novalidate>
+			<h2>Please Sign Up <small>It's free and always will be.</small></h2>
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+                        <input type="text" name="first_name" id="first_name" ng-model="user.first_name"class="form-control input-lg" placeholder="First Name" tabindex="1" ng-required="true">
+                        <div style="color:red" class="help-block" ng-show="(registration.first_name.$error.required && submitted)">First Name is required</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="last_name" id="last_name" ng-model="user.last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2" ng-required="true">
+						<div style="color:red" class="help-block" ng-show="(registration.last_name.$error.required && submitted)">Last Name is required</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group"  ng-class="{true: 'error'}[submitted && form.email.$invalid]">
+				<input type="email" name="email" id="email" ng-model="user.email" class="form-control input-lg" placeholder="Email Address" tabindex="4"  ng-minlength="15"  ng-required="true">
+				<div style="color:red" class="help-block" ng-show="(registration.email.$error.required && submitted)">Email is required</div>
+				<div style="color:red" ng-show="submitted && registration.email.$error.email">Invalid email</div>
+			</div>
+			<div class="form-group">
+				<input type="text" name="phone" ng-minlength="10" ng-maxlength="10" id="phone_number" ng-model="user.phone_number" class="form-control input-lg" ng-pattern="/^[0-9]+$/" placeholder="Phone Number" tabindex="3" ng-required="true">
+				<div style="color:red" class="help-block" ng-show="((registration.phone.$error.required || registration.phone.$error.pattern)&& submitted)">Valid phone number is required</div>
+	            <div style="color:red" class="help-block" ng-show="((registration.phone.$error.minlength || registration.phone.$error.maxlength) && sub0mitted) ">Phone number should be 10 digits</div>
+			</div>
+			<div class="form-group">
+				<input type="text" name="city" id="city" ng-model="user.city" class="form-control input-lg" placeholder="City" tabindex="3" ng-required="true">
+				<div style="color:red" class="help-block" ng-show="(registration.city.$error.required && submitted)">City is required</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="password" id="password" ng-model="user.password" class="form-control input-lg" placeholder="Password" tabindex="5" ng-required="true">
+						<div style="color:red" class="help-block" ng-show="(registration.last_name.$error.required && submitted)">Password is required</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="password_confirmation" id="password_confirmation" ng-model="user.password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6" ng-required="true">
+						<div style="color:red" class="help-block" ng-show="(registration.last_name.$error.required && submitted)">Confirm Password is required</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4 col-sm-3 col-md-3">
+					<span class="button-checkbox">
+						<button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+					</span>
+				</div>
+				<div class="col-xs-8 col-sm-9 col-md-9">
+					 By clicking <strong class="label label-primary">Register</strong>, you agree to the <a data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+				</div>
+			</div>
+			
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-md-6"><input type="submit" value="Register"
+				 ng-click="submitted=true;newuser(user)" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+				<div class="col-xs-12 col-md-6"><a href="#login" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+			</div>
+			<div class="modal-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
+
+
+</div>
+</div>
+<div class="footer">
+<div class="col-lg-6 col-md-6 col-sm-7 col-xs-6 pull-left">
+<a href="#">About Us</a>
+<a href="#">Help</a>
+<a href="#">More</a>
+
+</div>
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 pull-right">
+<a href="#"><img src="images/facebook.png" /></a>
+<a href="#"><img src="images/twittr.png" /></a>
+<a href="#"><img src="images/facebook.png" /></a>
+
+</div>
+<div class=" clearfix"></div>
+</div>
+
+
+</div>
+
+<script>
+$(function(){
+    $('.button-checkbox').each(function(){
+		var $widget = $(this),
+			$button = $widget.find('button'),
+			$checkbox = $widget.find('input:checkbox'),
+			color = $button.data('color'),
+			settings = {
+					on: {
+						icon: 'glyphicon glyphicon-check'
+					},
+					off: {
+						icon: 'glyphicon glyphicon-unchecked'
+					}
+			};
+
+		$button.on('click', function () {
+			$checkbox.prop('checked', !$checkbox.is(':checked'));
+			$checkbox.triggerHandler('change');
+			updateDisplay();
+		});
+
+		$checkbox.on('change', function () {
+			updateDisplay();
+		});
+
+		function updateDisplay() {
+			var isChecked = $checkbox.is(':checked');
+			// Set the button's state
+			$button.data('state', (isChecked) ? "on" : "off");
+
+			// Set the button's icon
+			$button.find('.state-icon')
+				.removeClass()
+				.addClass('state-icon ' + settings[$button.data('state')].icon);
+
+			// Update the button's color
+			if (isChecked) {
+				$button
+					.removeClass('btn-default')
+					.addClass('btn-' + color + ' active');
+			}
+			else
+			{
+				$button
+					.removeClass('btn-' + color + ' active')
+					.addClass('btn-default');
+			}
+		}
+		function init() {
+			updateDisplay();
+			// Inject the icon if applicable
+			if ($button.find('.state-icon').length == 0) {
+				$button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+			}
+		}
+		init();
+	});
+});
+</script>
+
+</body>
+
